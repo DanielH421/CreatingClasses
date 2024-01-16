@@ -4,7 +4,7 @@ namespace CreatingClasses
     {
         private static int idCount = 1;
 
-        private int personId;
+        private int personId; 
         private string firstName;
         private string lastName;
         private string favoriteColor;
@@ -88,7 +88,12 @@ namespace CreatingClasses
         // Displays each point of data from this object
         public override string ToString()
         {
-            return $"PersonId: {this.personId}\nFirstName: {this.firstName}\nLastName: {this.lastName}\nFavoriteColour: {this.favoriteColor}\nAge: {this.age}\nIsWorking: {isWorking}";
+            return $"PersonId: {this.personId}\n" +
+                   $"FirstName: {this.firstName}\n" +
+                   $"LastName: {this.lastName}\n" +
+                   $"FavoriteColour: {this.favoriteColor}\n" +
+                   $"Age: {this.age}\n" +
+                   $"IsWorking: {isWorking}";
         }
     }
 }
