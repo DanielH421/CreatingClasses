@@ -3,97 +3,63 @@ namespace CreatingClasses
     public class Person
     {
         private static int idCount = 1;
+        
+        public int PersonId { get; }
 
-        private int personId; 
-        private string firstName;
-        private string lastName;
-        private string favoriteColor;
-        private int age;
-        private bool isWorking;
-        private Relation relationship;
+        public string FirstName  { get; }
+        
+        public string LastName { get; }
 
-        // Constructor, sets variables, increases ID count
+        public string FavoriteColor { get; set; }
+        
+        public int Age { get; }
+
+        public bool IsWorking { get; }
+
+        public Relation Relationship { get; private set; }
+
+        
         public Person(string firstName, string lastName, string favoriteColor, int age, bool isWorking)
         {
-            this.personId = idCount;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.favoriteColor = favoriteColor;
-            this.age = age;
-            this.isWorking = isWorking;
+            this.PersonId = idCount;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.FavoriteColor = favoriteColor;
+            this.Age = age;
+            this.IsWorking = isWorking;
 
             idCount++;
         }
 
-        // Adds a relationship between this object and another person
+
+        public void ChangeFavoriteColour(string color)
+        {
+            this.FavoriteColor = color;
+        }
+        
         public void AddRelationship(Person person, string type)
         {
-            this.relationship = new Relation(this, person, type);
+            this.Relationship = new Relation(this, person, type);
         }
 
-        // Prints out some of the persons personal info
         public void DisplayPersonInfo()
         {
-            Console.WriteLine($"Name = {this.firstName} {this.lastName}");
+            Console.WriteLine($"Name = {this.FirstName} {this.LastName}");
         }
 
-        // Changes the favoriteColour variable
-        public void ChangeFavoriteColour(string newColor)
-        {
-            this.favoriteColor = newColor;
-        }
-
-        // Gets the persons age in 10 years
         public int GetAgeInTenYears()
         {
-            return this.age + 10;
+            return this.Age + 10;
         }
 
-        // Gets the relationship the person has.
-        public Relation GetRelationship()
-        {
-            return this.relationship;
-        }
-
-        // Gets the ID of the person
-        public int GetPersonId()
-        {
-            return this.personId;
-        }
-
-        // Gets the favorite colour of the person
-        public String GetFavoriteColour()
-        {
-            return this.favoriteColor;
-        }
-
-        // Gets the first name of the person
-        public String GetFirstName()
-        {
-            return this.firstName;
-        }
-
-        // Gets the last name of the person
-        public String GetLastName()
-        {
-            return this.lastName;
-        }
-
-        // Gets the age of the person
-        public int GetAge()
-        {
-            return this.age;
-        }
-
-        // Displays each point of data from this object
         public override string ToString()
         {
-            return $"PersonId: {this.personId}\n" +
-                   $"FirstName: {this.firstName}\n" +
-                   $"LastName: {this.lastName}\n" +
-                   $"FavoriteColour: {this.favoriteColor}\n" +
-                   $"Age: {this.age}\n" +
-                   $"IsWorking: {isWorking}";
+            return $"PersonId: {this.PersonId}\n" +
+                   $"FirstName: {this.FirstName}\n" +
+                   $"LastName: {this.LastName}\n" +
+                   $"FavoriteColour: {this.FavoriteColor}\n" +
+                   $"Age: {this.Age}\n" +
+                   $"IsWorking: {IsWorking}";
         }
     }
 }

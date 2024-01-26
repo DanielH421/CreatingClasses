@@ -1,4 +1,4 @@
-namespace CreatingClasses;
+﻿namespace CreatingClasses;
 
 public class Relation
 {
@@ -9,8 +9,8 @@ public class Relation
     // Constructor. Creates a relationship between two people.
     public Relation(Person person1, Person person2, String type)
     {
-        this.person1ID = person1.GetPersonId();
-        this.person2ID = person2.GetPersonId();
+        this.person1ID = person1.PersonId;
+        this.person2ID = person2.PersonId;
         this.relationshipType = type;
     }
     
@@ -37,13 +37,13 @@ public class Relation
     {
         String relationship = "Strangers";
 
-        Relation r = person.GetRelationship();
+        Relation r = person.Relationship;
 
-        if (r.getPerson1ID() == relatedTo.GetPersonId() || r.getPerson2ID() == relatedTo.GetPersonId())
+        if (r.getPerson1ID() == relatedTo.PersonId || r.getPerson2ID() == relatedTo.PersonId)
         {
             relationship = r.getRelationshipType();
         }
 
-        Console.WriteLine($"Relationship between {person.GetFirstName()} and {relatedTo.GetFirstName()} is: {relationship}");
+        Console.WriteLine($"Relationship between {person.FirstName} and {relatedTo.LastName} is: {relationship}");
     } 
 }
